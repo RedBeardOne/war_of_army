@@ -16,7 +16,11 @@ public class Warrior {
         return attack;
     }
 
-    public void setHealth(int health) {
+    public void getDamage(Warrior warrior) {
+        setHealth(getHealth() - warrior.getAttack());
+    }
+
+    private void setHealth(int health) {
         this.health = health;
     }
 }
