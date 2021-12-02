@@ -112,6 +112,7 @@ class ApplicationTest {
         //act
         Battle figth = new Battle();
         var result = figth.fight(unitOne, unitTwo);
+        System.out.println(unitOne.getHealth() + " " + unitTwo.getHealth());
         var finalBattle = figth.fight(unitTwo, unitThree);
 
         //assert
