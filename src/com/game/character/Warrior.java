@@ -1,13 +1,23 @@
 package com.game.character;
 
 public class Warrior {
-    private int health = 50;
-    private static int attack = 5;
+    private static int defaultAttack = 5;
+    private int health;
+
+
+    protected Warrior(int health) {
+        this.health = health;
+    }
+
+    public Warrior() {
+        this.health = 50;
+    }
 
     public static Warrior create(String clazz) {
         return switch (clazz) {
             case "Warrior" -> new Warrior();
             case "Knight" -> new Knight();
+            case "Defender" -> new Defender();
             default -> throw new IllegalStateException("Unexpected value: " + clazz);
         };
     }
@@ -16,20 +26,19 @@ public class Warrior {
         return health > 0;
     }
 
-
     public int getHealth() {
         return health;
     }
 
     public int getAttack() {
-        return attack;
+        return defaultAttack;
     }
 
-    public void getDamage(Warrior warrior) {
+    public void damage(Warrior warrior) {
         setHealth(getHealth() - warrior.getAttack());
     }
 
-    private void setHealth(int health) {
+    protected void setHealth(int health) {
         this.health = health;
     }
 }

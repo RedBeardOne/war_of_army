@@ -10,4 +10,32 @@ class BattleTest {
     void fight() {
         fail();
     }
+
+    @Test
+    void testFight() {
+    }
+
+    @Test
+    void armyFight() {
+    }
+
+    @Test
+    void testFight1() {
+    }
+
+    @Test
+    void testArmyFight() {
+    }
+
+    @Test
+    void armyFightIter() {
+    }
+
+    @Test
+    void testFight2() {
+    }
+
+    @Test
+    void testArmyFight1() {
+    }
 }

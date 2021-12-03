@@ -4,14 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class KnightTest {
+class DefenderTest {
 
     @Test
     void getAttack() {
-      fail();
     }
 
     @Test
-    void testGetAttack() {
+    void damage() {
     }
 }
