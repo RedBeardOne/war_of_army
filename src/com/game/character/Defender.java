@@ -10,12 +10,14 @@ public class Defender extends Warrior {
     }
 
     @Override
+    public void damage(Warrior warrior) {
+        setHealth(getHealth() - (warrior.getAttack() - defaultDefence));
+    }
+
+    @Override
     public int getAttack() {
         return defaultAttack;
     }
 
-    @Override
-    public void damage(Warrior warrior) {
-        setHealth(getHealth() - (warrior.getAttack() - defaultDefence));
-    }
+
 }

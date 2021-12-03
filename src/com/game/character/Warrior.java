@@ -4,7 +4,6 @@ public class Warrior {
     private static int defaultAttack = 5;
     private int health;
 
-
     protected Warrior(int health) {
         this.health = health;
     }

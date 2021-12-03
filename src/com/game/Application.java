@@ -8,7 +8,7 @@ import com.game.function.Battle;
 
 public class Application {
     public static void main(String[] args) {
-        var carl = new Warrior();
+        var carl = new Knight();
         var jim = new Defender();
 
         var cart = new Warrior();
@@ -23,7 +23,7 @@ public class Application {
         //act
         Battle figth = new Battle();
         var result = figth.fight(carl, jim);
-        System.out.println(result);
+        System.out.println(" Knight defender = "+result);
 
 
         result = figth.fight(cart, cal);
