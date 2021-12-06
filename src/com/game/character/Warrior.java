@@ -14,11 +14,17 @@ public class Warrior {
 
     public static Warrior create(String clazz) {
         return switch (clazz) {
+            case "Rookie" -> new Rookie();
             case "Warrior" -> new Warrior();
             case "Knight" -> new Knight();
             case "Defender" -> new Defender();
+            case "Vampires" -> new Vampire();
             default -> throw new IllegalStateException("Unexpected value: " + clazz);
         };
+    }
+
+    protected int getDefence() {
+        return 0;
     }
 
     public boolean isAlive() {
@@ -34,7 +40,12 @@ public class Warrior {
     }
 
     public void damage(Warrior warrior) {
-        setHealth(getHealth() - warrior.getAttack());
+        var attack = warrior.getAttack();
+        var defence = getDefence();
+        var health = getHealth();
+        if (attack > defence) {
+            setHealth(health - (attack - defence));
+        }
     }
 
     protected void setHealth(int health) {

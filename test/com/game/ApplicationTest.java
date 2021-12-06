@@ -2,6 +2,7 @@ package com.game;
 
 import com.game.character.Defender;
 import com.game.character.Knight;
+import com.game.character.Vampire;
 import com.game.character.Warrior;
 import com.game.function.Army;
 import com.game.function.Battle;
@@ -264,9 +265,9 @@ class ApplicationTest {
     @DisplayName(" Testing with param")
     @ParameterizedTest
     @CsvSource({"Warrior, Warrior, true",
-                "Warrior, Knight, false",
-                "Warrior, Defender, false",
-                "Knight, Defender, true"})
+            "Warrior, Knight, false",
+            "Warrior, Defender, false",
+            "Knight, Defender, true"})
     void battleTestParam(String firstWarrior, String secondWarrior, boolean expected) {
         //arrange
         var first = Warrior.create(firstWarrior);
@@ -283,7 +284,7 @@ class ApplicationTest {
     @DisplayName("Added defender. Testing  army of 14 with 4")
     @ParameterizedTest
     @CsvSource({"true"})
-    void battleTestArmyDefender( boolean expected) {
+    void battleTestArmyDefender(boolean expected) {
         //arrange
         Army myArmy = new Army();
         myArmy.addUnit(Warrior.class, 5);
@@ -303,7 +304,7 @@ class ApplicationTest {
     @DisplayName("Added defender. Testing  army of 29 with 21")
     @ParameterizedTest
     @CsvSource({"true"})
-    void battleTestArmyDefenderBig( boolean expected) {
+    void battleTestArmyDefenderBig(boolean expected) {
         //arrange
         Army myArmy = new Army();
         Army enemyArmy = new Army();
@@ -339,6 +340,7 @@ class ApplicationTest {
         //assert
         assertEquals(expected, resalt);
     }
+
     @DisplayName("Added defender. Testing  army of 4 with 5")
     @ParameterizedTest
     @CsvSource({"false"})
@@ -356,5 +358,112 @@ class ApplicationTest {
 
         //assert
         assertEquals(expected, resalt);
+    }
+
+    @DisplayName(" Testing with param Defender vs Rookie")
+    @ParameterizedTest
+    @CsvSource({"Defender, Rookie, 60"})
+    void battleTestRookie(String firstWarrior, String secondWarrior, int expected) {
+        //arrange
+        var first = Warrior.create(firstWarrior);
+        var second = Warrior.create(secondWarrior);
+
+        //act
+        Battle figth = new Battle();
+        var result = figth.fight(first, second);
+        var health = first.getHealth();
+
+        //assert
+        assertEquals(expected, health);
+    }
+
+    @DisplayName(" Testing with param battle 11, 18 units vs 18")
+    @ParameterizedTest
+    @CsvSource({"false"})
+    void battleTestVampires(boolean expected) {
+        //arrange
+        Army myArmy = new Army();
+        Army enemyArmy = new Army();
+        myArmy.addUnit(Defender.class, 5);
+        myArmy.addUnit(Vampire.class, 6);
+        myArmy.addUnit(Warrior.class, 7);
+
+        enemyArmy.addUnit(Warrior.class, 6);
+        enemyArmy.addUnit(Defender.class, 6);
+        enemyArmy.addUnit(Vampire.class, 6);
+
+        //act
+        Battle figth = new Battle();
+        var result = figth.armyFight(myArmy, enemyArmy);
+
+        //assert
+        assertEquals(expected, result);
+    }
+    @DisplayName(" Testing with param battle 12, 9 units vs 1")
+    @ParameterizedTest
+    @CsvSource({"false"})
+    void battleTestVampiresSmall(boolean expected) {
+        //arrange
+        Army myArmy = new Army();
+        Army enemyArmy = new Army();
+        myArmy.addUnit(Defender.class, 2);
+        myArmy.addUnit(Vampire.class, 3);
+        myArmy.addUnit(Warrior.class, 4);
+
+        enemyArmy.addUnit(Warrior.class, 4);
+        enemyArmy.addUnit(Defender.class, 4);
+        enemyArmy.addUnit(Vampire.class, 3);
+
+        //act
+        Battle figth = new Battle();
+        var result = figth.armyFight(myArmy, enemyArmy);
+
+        //assert
+        assertEquals(expected, result);
+    }
+    @DisplayName(" Testing with param battle 13, 18 units vs 21")
+    @ParameterizedTest
+    @CsvSource({"true"})
+    void battleTestVampiresThirteen(boolean expected) {
+        //arrange
+        Army myArmy = new Army();
+        Army enemyArmy = new Army();
+        myArmy.addUnit(Defender.class, 11);
+        myArmy.addUnit(Vampire.class, 3);
+        myArmy.addUnit(Warrior.class, 4);
+
+        enemyArmy.addUnit(Warrior.class, 4);
+        enemyArmy.addUnit(Defender.class, 4);
+        enemyArmy.addUnit(Vampire.class, 13);
+
+        //act
+        Battle figth = new Battle();
+        var result = figth.armyFight(myArmy, enemyArmy);
+
+        //assert
+        assertEquals(expected, result);
+    }
+
+    @DisplayName(" Testing with param battle 13, 20 units vs 21")
+    @ParameterizedTest
+    @CsvSource({"true"})
+    void battleTestVampiresFourteen(boolean expected) {
+        //arrange
+        Army myArmy = new Army();
+        Army enemyArmy = new Army();
+        myArmy.addUnit(Defender.class, 9);
+        myArmy.addUnit(Vampire.class, 3);
+        myArmy.addUnit(Warrior.class, 8);
+
+        enemyArmy.addUnit(Warrior.class, 4);
+        enemyArmy.addUnit(Defender.class, 4);
+        enemyArmy.addUnit(Vampire.class, 13);
+
+        //act
+        Battle figth = new Battle();
+        var result = figth.armyFight(myArmy, enemyArmy);
+
+        //assert
+        assertEquals(expected, result);
     }
 }
