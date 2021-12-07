@@ -18,9 +18,9 @@ public class Vampire extends Warrior {
     }
 
     @Override
-    public void damage(Warrior warrior) {
-        healing = (warrior.getDefence()) * 50 / 100;
-        super.damage(warrior);
+    public void damageFrom(Warrior warrior) {
+        healing = ((defaultAttack - warrior.getDefence()) * 50) / 100;
+        super.damageFrom(warrior);
     }
 }
 

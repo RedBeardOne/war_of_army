@@ -19,4 +19,15 @@ public class Defender extends Warrior {
         return defaultAttack;
     }
 
+    @Override
+    public void damageFrom(Warrior warrior) {
+        var attack = warrior.getAttack();
+        var defence = getDefence();
+        var health = getHealth();
+        if (attack > defence) {
+            setHealth(health - (attack - defence));
+        }
+    }
 }
+
+

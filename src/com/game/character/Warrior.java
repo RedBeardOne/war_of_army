@@ -4,6 +4,7 @@ public class Warrior {
     private static int defaultAttack = 5;
     private int health;
 
+
     protected Warrior(int health) {
         this.health = health;
     }
@@ -18,7 +19,7 @@ public class Warrior {
             case "Warrior" -> new Warrior();
             case "Knight" -> new Knight();
             case "Defender" -> new Defender();
-            case "Vampires" -> new Vampire();
+            case "Vampire" -> new Vampire();
             default -> throw new IllegalStateException("Unexpected value: " + clazz);
         };
     }
@@ -35,17 +36,14 @@ public class Warrior {
         return health;
     }
 
-    public int getAttack() {
+    protected int getAttack() {
         return defaultAttack;
     }
 
-    public void damage(Warrior warrior) {
-        var attack = warrior.getAttack();
-        var defence = getDefence();
-        var health = getHealth();
-        if (attack > defence) {
-            setHealth(health - (attack - defence));
-        }
+    public void damageFrom(Warrior warrior) {
+        var warriorAttack = warrior.getAttack();
+        var defenderHealth = getHealth();
+        setHealth(defenderHealth - warriorAttack);
     }
 
     protected void setHealth(int health) {

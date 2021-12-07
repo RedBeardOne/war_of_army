@@ -12,3 +12,11 @@ T
 $test/com/game/function/ArmyTest.java,1\2\12ac602a71c0225e414abcc2dd62569268ed25ee
 Y
 )test/com/game/character/DefenderTest.java,0\3\031e8689664804cc2cb13a2895d6ac3a6747fdfa
+R
+"src/com/game/character/Knight.java,5\e\5e8fa9380d360af0a1093b95cc36fe8b9a1c56e2
+R
+"src/com/game/character/Rookie.java,0\0\00fd66481133c3c717c7061be0e1c802340d52ed
+Y
+)test/com/game/character/VampiresTest.java,e\f\efe16998e72df1bfa4f0bbb9a67a52cddee74cc7
+R
+"test/com/game/ApplicationTest.java,0\5\051418b7391929fe690b6469b18f346bb35d354c

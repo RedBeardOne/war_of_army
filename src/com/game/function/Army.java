@@ -25,9 +25,9 @@ public class Army{
         return army.stream().filter(Warrior::isAlive).findFirst();
     }
 
-    public void deathOf(Warrior warrior){
+    public void deathOf(Warrior warrior, Army army){
         if (!warrior.isAlive()){
-            getArmy().remove(warrior);
+            army.getArmy().remove(warrior);
         }
     }
 

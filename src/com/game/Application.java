@@ -11,11 +11,11 @@ public class Application {
         var carl = new Rookie();
       Battle figth = new Battle();
       var result = figth.fight(jim, carl );
-     System.out.println(result);
+   //  System.out.println(result);
 
         var cart = new Knight();
         var cal = new Vampire();
-      var resultTwo = figth.fight(cart, cal );
+   //   var resultTwo = figth.fight(cart, cal );
 
        Army myArmy = new Army();
         myArmy.addUnit(Vampire.class, 20);
