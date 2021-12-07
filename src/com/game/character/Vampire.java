@@ -19,7 +19,7 @@ public class Vampire extends Warrior {
 
     @Override
     public void damage(Warrior warrior) {
-        healing = (warrior.getDefence()) / 2;
+        healing = (warrior.getDefence()) * 50 / 100;
         super.damage(warrior);
     }
 }

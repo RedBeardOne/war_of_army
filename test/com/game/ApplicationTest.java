@@ -377,7 +377,7 @@ class ApplicationTest {
         assertEquals(expected, health);
     }
 
-    @DisplayName(" Testing with param battle 11, 18 units vs 18")
+    @DisplayName(" Vampire testing with param battle 11, 18 units vs 18")
     @ParameterizedTest
     @CsvSource({"false"})
     void battleTestVampires(boolean expected) {
@@ -399,7 +399,7 @@ class ApplicationTest {
         //assert
         assertEquals(expected, result);
     }
-    @DisplayName(" Testing with param battle 12, 9 units vs 1")
+    @DisplayName(" Vampire testing with param battle 12, 9 units vs 11")
     @ParameterizedTest
     @CsvSource({"false"})
     void battleTestVampiresSmall(boolean expected) {
@@ -421,7 +421,7 @@ class ApplicationTest {
         //assert
         assertEquals(expected, result);
     }
-    @DisplayName(" Testing with param battle 13, 18 units vs 21")
+    @DisplayName(" Vampire testing with param battle 13, 18 units vs 21")
     @ParameterizedTest
     @CsvSource({"true"})
     void battleTestVampiresThirteen(boolean expected) {
@@ -444,7 +444,7 @@ class ApplicationTest {
         assertEquals(expected, result);
     }
 
-    @DisplayName(" Testing with param battle 13, 20 units vs 21")
+    @DisplayName("Vampire testing with param battle 14, 20 units vs 21")
     @ParameterizedTest
     @CsvSource({"true"})
     void battleTestVampiresFourteen(boolean expected) {
